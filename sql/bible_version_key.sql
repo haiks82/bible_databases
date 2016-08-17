@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `bible_version_key`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bible_version_key` (
   `id` int(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `table` text NOT NULL COMMENT 'Database Table Name ',
+  `sqltable` text NOT NULL COMMENT 'Database Table Name ',
   `abbreviation` text NOT NULL COMMENT 'Version Abbreviation',
   `language` text NOT NULL COMMENT 'Language of bible translation (used for language key tables)',
   `version` text NOT NULL COMMENT 'Version Name',
