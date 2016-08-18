@@ -85,6 +85,16 @@ foreach($mainlink->query("select * from $trsl where (id between '$qrystrr1' and 
 echo "<div class=\"vref\"><b><sup>".$bibledb[v]."</sup></b></div> ".$bibledb[t]."&nbsp;&nbsp;";
 }
 }elseif ($range === true){
+if ($numberedbook === true){
+$r1 = str_pad($partials[3], 3, "0", STR_PAD_LEFT);
+$r2 = str_pad($partials[4], 3, "0", STR_PAD_LEFT);
+$qrystrr1 = $b.$c.$r1;
+$qrystrr2 = $b.$c.$r2;
+echo "<div><h2>$book ".ltrim($c, '0')."</h2></div>";
+foreach($mainlink->query("select * from $trsl where (id between '$qrystrr1' and '$qrystrr2')") as $bibledb){
+echo "<div class=\"vref\"><b><sup>".$bibledb[v]."</sup></b></div> ".$bibledb[t]."&nbsp;&nbsp;";
+}
+}else{
 $r1 = str_pad($partials[2], 3, "0", STR_PAD_LEFT);
 $r2 = str_pad($partials[3], 3, "0", STR_PAD_LEFT);
 $qrystrr1 = $b.$c.$r1;
@@ -92,6 +102,7 @@ $qrystrr2 = $b.$c.$r2;
 echo "<div><h2>$book ".ltrim($c, '0')."</h2></div>";
 foreach($mainlink->query("select * from $trsl where (id between '$qrystrr1' and '$qrystrr2')") as $bibledb){
 echo "<div class=\"vref\"><b><sup>".$bibledb[v]."</sup></b></div> ".$bibledb[t]."&nbsp;&nbsp;";
+}
 }
 }else{
 $qrystr = $b.$c.$v;
